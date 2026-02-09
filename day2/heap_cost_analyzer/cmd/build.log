@@ -1,0 +1,293 @@
+warning: GOPATH set to GOROOT (/home/systemdr/go) has no effect
+# heap_cost_analyzer/cmd/server
+./main.go:64:6: cannot inline dashboardHandler: function too complex: cost 520 exceeds budget 80
+./main.go:65:17: inlining call to sync.(*RWMutex).RLock
+./main.go:70:19: inlining call to sync.(*RWMutex).RUnlock
+./main.go:78:16: inlining call to http.Header.Set
+./main.go:65:17: inlining call to atomic.(*Int32).Add
+./main.go:70:19: inlining call to atomic.(*Int32).Add
+./main.go:78:16: inlining call to textproto.MIMEHeader.Set
+./main.go:107:6: cannot inline metricsJSONHandler: unhandled op DEFER
+./main.go:109:2: can inline metricsJSONHandler.deferwrap1 with cost 80 as: func() { (*sync.RWMutex).RUnlock(.autotmp_2) }
+./main.go:108:17: inlining call to sync.(*RWMutex).RLock
+./main.go:110:16: inlining call to http.Header.Set
+./main.go:108:17: inlining call to atomic.(*Int32).Add
+./main.go:110:16: inlining call to textproto.MIMEHeader.Set
+./main.go:109:25: inlining call to sync.(*RWMutex).RUnlock
+./main.go:109:25: inlining call to atomic.(*Int32).Add
+./main.go:23:6: cannot inline main: function too complex: cost 555 exceeds budget 80
+./main.go:26:33: cannot inline main.func1: function too complex: cost 598 exceeds budget 80
+./main.go:42:34: cannot inline main.func2: function too complex: cost 598 exceeds budget 80
+./main.go:60:12: inlining call to log.Printf
+./main.go:61:31: inlining call to http.ListenAndServe
+./main.go:38:13: inlining call to log.Printf
+./main.go:54:13: inlining call to log.Printf
+./main.go:78:16: []string{...} escapes to heap:
+./main.go:78:16:   flow: {heap} = &{storage for []string{...}}:
+./main.go:78:16:     from []string{...} (spill) at ./main.go:78:16
+./main.go:78:16:     from textproto.h[textproto.CanonicalMIMEHeaderKey(textproto.key)] = []string{...} (assign) at ./main.go:78:16
+./main.go:104:16: html escapes to heap:
+./main.go:104:16:   flow: {storage for ... argument} = &{storage for html}:
+./main.go:104:16:     from html (spill) at ./main.go:104:16
+./main.go:104:16:     from ... argument (slice-literal-element) at ./main.go:104:12
+./main.go:104:16:   flow: {heap} = {storage for ... argument}:
+./main.go:104:16:     from ... argument (spill) at ./main.go:104:12
+./main.go:104:16:     from fmt.Fprint(w, ... argument...) (call parameter) at ./main.go:104:12
+./main.go:103:31: stackStatus escapes to heap:
+./main.go:103:31:   flow: {storage for ... argument} = &{storage for stackStatus}:
+./main.go:103:31:     from stackStatus (spill) at ./main.go:103:31
+./main.go:103:31:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:103:31:   flow: {heap} = {storage for ... argument}:
+./main.go:103:31:     from ... argument (spill) at ./main.go:79:21
+./main.go:103:31:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:103:21: stackDur escapes to heap:
+./main.go:103:21:   flow: {storage for ... argument} = &{storage for stackDur}:
+./main.go:103:21:     from stackDur (spill) at ./main.go:103:21
+./main.go:103:21:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:103:21:   flow: {heap} = {storage for ... argument}:
+./main.go:103:21:     from ... argument (spill) at ./main.go:79:21
+./main.go:103:21:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:103:12: stackTS escapes to heap:
+./main.go:103:12:   flow: {storage for ... argument} = &{storage for stackTS}:
+./main.go:103:12:     from stackTS (spill) at ./main.go:103:12
+./main.go:103:12:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:103:12:   flow: {heap} = {storage for ... argument}:
+./main.go:103:12:     from ... argument (spill) at ./main.go:79:21
+./main.go:103:12:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:103:3: stackID escapes to heap:
+./main.go:103:3:   flow: {storage for ... argument} = &{storage for stackID}:
+./main.go:103:3:     from stackID (spill) at ./main.go:103:3
+./main.go:103:3:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:103:3:   flow: {heap} = {storage for ... argument}:
+./main.go:103:3:     from ... argument (spill) at ./main.go:79:21
+./main.go:103:3:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:102:28: heapStatus escapes to heap:
+./main.go:102:28:   flow: {storage for ... argument} = &{storage for heapStatus}:
+./main.go:102:28:     from heapStatus (spill) at ./main.go:102:28
+./main.go:102:28:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:102:28:   flow: {heap} = {storage for ... argument}:
+./main.go:102:28:     from ... argument (spill) at ./main.go:79:21
+./main.go:102:28:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:102:19: heapDur escapes to heap:
+./main.go:102:19:   flow: {storage for ... argument} = &{storage for heapDur}:
+./main.go:102:19:     from heapDur (spill) at ./main.go:102:19
+./main.go:102:19:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:102:19:   flow: {heap} = {storage for ... argument}:
+./main.go:102:19:     from ... argument (spill) at ./main.go:79:21
+./main.go:102:19:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:102:11: heapTS escapes to heap:
+./main.go:102:11:   flow: {storage for ... argument} = &{storage for heapTS}:
+./main.go:102:11:     from heapTS (spill) at ./main.go:102:11
+./main.go:102:11:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:102:11:   flow: {heap} = {storage for ... argument}:
+./main.go:102:11:     from ... argument (spill) at ./main.go:79:21
+./main.go:102:11:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:102:3: heapID escapes to heap:
+./main.go:102:3:   flow: {storage for ... argument} = &{storage for heapID}:
+./main.go:102:3:     from heapID (spill) at ./main.go:102:3
+./main.go:102:3:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:102:3:   flow: {heap} = {storage for ... argument}:
+./main.go:102:3:     from ... argument (spill) at ./main.go:79:21
+./main.go:102:3:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:101:12: stackCnt escapes to heap:
+./main.go:101:12:   flow: {storage for ... argument} = &{storage for stackCnt}:
+./main.go:101:12:     from stackCnt (spill) at ./main.go:101:12
+./main.go:101:12:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:101:12:   flow: {heap} = {storage for ... argument}:
+./main.go:101:12:     from ... argument (spill) at ./main.go:79:21
+./main.go:101:12:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:101:3: heapCnt escapes to heap:
+./main.go:101:3:   flow: {storage for ... argument} = &{storage for heapCnt}:
+./main.go:101:3:     from heapCnt (spill) at ./main.go:101:3
+./main.go:101:3:     from ... argument (slice-literal-element) at ./main.go:79:21
+./main.go:101:3:   flow: {heap} = {storage for ... argument}:
+./main.go:101:3:     from ... argument (spill) at ./main.go:79:21
+./main.go:101:3:     from fmt.Sprintf("<!DOCTYPE html>\n<html>\n<head><title>Heap Cost Analyzer Dashboard</..., ... argument...) (call parameter) at ./main.go:79:21
+./main.go:64:23: parameter w leaks to {heap} with derefs=0:
+./main.go:64:23:   flow: {heap} = w:
+./main.go:64:23:     from w.Header() (call parameter) at ./main.go:78:10
+./main.go:64:23: leaking param: w
+./main.go:64:46: r does not escape
+./main.go:78:16: []string{...} escapes to heap
+./main.go:79:21: ... argument does not escape
+./main.go:101:3: heapCnt escapes to heap
+./main.go:101:12: stackCnt escapes to heap
+./main.go:102:3: heapID escapes to heap
+./main.go:102:11: heapTS escapes to heap
+./main.go:102:19: heapDur escapes to heap
+./main.go:102:28: heapStatus escapes to heap
+./main.go:103:3: stackID escapes to heap
+./main.go:103:12: stackTS escapes to heap
+./main.go:103:21: stackDur escapes to heap
+./main.go:103:31: stackStatus escapes to heap
+./main.go:104:12: ... argument does not escape
+./main.go:104:16: html escapes to heap
+./main.go:110:16: []string{...} escapes to heap:
+./main.go:110:16:   flow: {heap} = &{storage for []string{...}}:
+./main.go:110:16:     from []string{...} (spill) at ./main.go:110:16
+./main.go:110:16:     from textproto.h[textproto.CanonicalMIMEHeaderKey(textproto.key)] = []string{...} (assign) at ./main.go:110:16
+./main.go:109:17: metricsJSONHandler capturing by value: .autotmp_2 (addr=false assign=false width=8)
+./main.go:116:41: lastStackStats escapes to heap:
+./main.go:116:41:   flow: {storage for ... argument} = &{storage for lastStackStats}:
+./main.go:116:41:     from lastStackStats (spill) at ./main.go:116:41
+./main.go:116:41:     from ... argument (slice-literal-element) at ./main.go:115:14
+./main.go:116:41:   flow: {heap} = {storage for ... argument}:
+./main.go:116:41:     from ... argument (spill) at ./main.go:115:14
+./main.go:116:41:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_stack\":%+v}", ... argument...) (call parameter) at ./main.go:115:14
+./main.go:116:22: stackRequestCount escapes to heap:
+./main.go:116:22:   flow: {storage for ... argument} = &{storage for stackRequestCount}:
+./main.go:116:22:     from stackRequestCount (spill) at ./main.go:116:22
+./main.go:116:22:     from ... argument (slice-literal-element) at ./main.go:115:14
+./main.go:116:22:   flow: {heap} = {storage for ... argument}:
+./main.go:116:22:     from ... argument (spill) at ./main.go:115:14
+./main.go:116:22:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_stack\":%+v}", ... argument...) (call parameter) at ./main.go:115:14
+./main.go:116:4: heapRequestCount escapes to heap:
+./main.go:116:4:   flow: {storage for ... argument} = &{storage for heapRequestCount}:
+./main.go:116:4:     from heapRequestCount (spill) at ./main.go:116:4
+./main.go:116:4:     from ... argument (slice-literal-element) at ./main.go:115:14
+./main.go:116:4:   flow: {heap} = {storage for ... argument}:
+./main.go:116:4:     from ... argument (spill) at ./main.go:115:14
+./main.go:116:4:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_stack\":%+v}", ... argument...) (call parameter) at ./main.go:115:14
+./main.go:113:56: lastStackStats escapes to heap:
+./main.go:113:56:   flow: {storage for ... argument} = &{storage for lastStackStats}:
+./main.go:113:56:     from lastStackStats (spill) at ./main.go:113:56
+./main.go:113:56:     from ... argument (slice-literal-element) at ./main.go:112:14
+./main.go:113:56:   flow: {heap} = {storage for ... argument}:
+./main.go:113:56:     from ... argument (spill) at ./main.go:112:14
+./main.go:113:56:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_heap\":%+v,\"last..., ... argument...) (call parameter) at ./main.go:112:14
+./main.go:113:22: stackRequestCount escapes to heap:
+./main.go:113:22:   flow: {storage for ... argument} = &{storage for stackRequestCount}:
+./main.go:113:22:     from stackRequestCount (spill) at ./main.go:113:22
+./main.go:113:22:     from ... argument (slice-literal-element) at ./main.go:112:14
+./main.go:113:22:   flow: {heap} = {storage for ... argument}:
+./main.go:113:22:     from ... argument (spill) at ./main.go:112:14
+./main.go:113:22:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_heap\":%+v,\"last..., ... argument...) (call parameter) at ./main.go:112:14
+./main.go:113:4: heapRequestCount escapes to heap:
+./main.go:113:4:   flow: {storage for ... argument} = &{storage for heapRequestCount}:
+./main.go:113:4:     from heapRequestCount (spill) at ./main.go:113:4
+./main.go:113:4:     from ... argument (slice-literal-element) at ./main.go:112:14
+./main.go:113:4:   flow: {heap} = {storage for ... argument}:
+./main.go:113:4:     from ... argument (spill) at ./main.go:112:14
+./main.go:113:4:     from fmt.Fprintf(w, "{\"heap_requests\":%d,\"stack_requests\":%d,\"last_heap\":%+v,\"last..., ... argument...) (call parameter) at ./main.go:112:14
+./main.go:107:25: parameter w leaks to {heap} with derefs=0:
+./main.go:107:25:   flow: {heap} = w:
+./main.go:107:25:     from w.Header() (call parameter) at ./main.go:110:10
+./main.go:107:25: leaking param: w
+./main.go:107:48: r does not escape
+./main.go:110:16: []string{...} escapes to heap
+./main.go:112:14: ... argument does not escape
+./main.go:113:4: heapRequestCount escapes to heap
+./main.go:113:22: stackRequestCount escapes to heap
+./main.go:113:56: lastStackStats escapes to heap
+./main.go:115:14: ... argument does not escape
+./main.go:116:4: heapRequestCount escapes to heap
+./main.go:116:22: stackRequestCount escapes to heap
+./main.go:116:41: lastStackStats escapes to heap
+./main.go:26:33: func literal escapes to heap:
+./main.go:26:33:   flow: {heap} = &{storage for func literal}:
+./main.go:26:33:     from func literal (spill) at ./main.go:26:33
+./main.go:26:33:     from http.HandleFunc("/stats-heap", func literal) (call parameter) at ./main.go:26:17
+./main.go:42:34: func literal escapes to heap:
+./main.go:42:34:   flow: {heap} = &{storage for func literal}:
+./main.go:42:34:     from func literal (spill) at ./main.go:42:34
+./main.go:42:34:     from http.HandleFunc("/stats-stack", func literal) (call parameter) at ./main.go:42:17
+./main.go:38:13: main.func1 capturing by value: log.format (addr=false assign=false width=16)
+./main.go:38:13: main.func1 capturing by value: log.v (addr=false assign=false width=24)
+./main.go:54:13: main.func2 capturing by value: log.format (addr=false assign=false width=16)
+./main.go:54:13: main.func2 capturing by value: log.v (addr=false assign=false width=24)
+./main.go:60:12: main capturing by value: log.format (addr=false assign=false width=16)
+./main.go:60:12: main capturing by value: log.v (addr=false assign=false width=24)
+./main.go:61:31: &http.Server{...} escapes to heap:
+./main.go:61:31:   flow: http.server = &{storage for &http.Server{...}}:
+./main.go:61:31:     from &http.Server{...} (spill) at ./main.go:61:31
+./main.go:61:31:     from http.server := &http.Server{...} (assign) at ./main.go:61:31
+./main.go:61:31:   flow: {heap} = http.server:
+./main.go:61:31:     from (*http.Server).ListenAndServe(http.server) (call parameter) at ./main.go:61:31
+./main.go:60:40: "8080" escapes to heap:
+./main.go:60:40:   flow: {storage for ... argument} = &{storage for "8080"}:
+./main.go:60:40:     from "8080" (spill) at ./main.go:60:40
+./main.go:60:40:     from ... argument (slice-literal-element) at ./main.go:60:12
+./main.go:60:40:   flow: log.v = &{storage for ... argument}:
+./main.go:60:40:     from ... argument (spill) at ./main.go:60:12
+./main.go:60:40:     from log.format, log.v := "Server listening on :%s", ... argument (assign-pair) at ./main.go:60:12
+./main.go:60:40:   flow: {heap} = *log.v:
+./main.go:60:40:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+./main.go:54:55: reqID escapes to heap:
+./main.go:54:55:   flow: {storage for ... argument} = &{storage for reqID}:
+./main.go:54:55:     from reqID (spill) at ./main.go:54:55
+./main.go:54:55:     from ... argument (slice-literal-element) at ./main.go:54:13
+./main.go:54:55:   flow: log.v = &{storage for ... argument}:
+./main.go:54:55:     from ... argument (spill) at ./main.go:54:13
+./main.go:54:55:     from log.format, log.v := "Stack handler processed request ID %d", ... argument (assign-pair) at ./main.go:54:13
+./main.go:54:55:   flow: {heap} = *log.v:
+./main.go:54:55:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+./main.go:53:50: stats escapes to heap:
+./main.go:53:50:   flow: {storage for ... argument} = &{storage for stats}:
+./main.go:53:50:     from stats (spill) at ./main.go:53:50
+./main.go:53:50:     from ... argument (slice-literal-element) at ./main.go:53:14
+./main.go:53:50:   flow: {heap} = {storage for ... argument}:
+./main.go:53:50:     from ... argument (spill) at ./main.go:53:14
+./main.go:53:50:     from fmt.Fprintf(w, "Stack Allocated Stats: %+v\n", ... argument...) (call parameter) at ./main.go:53:14
+./main.go:42:39: parameter w leaks to {heap} with derefs=0:
+./main.go:42:39:   flow: {heap} = w:
+./main.go:42:39:     from w (interface-converted) at ./main.go:53:15
+./main.go:42:39:     from fmt.Fprintf(w, "Stack Allocated Stats: %+v\n", ... argument...) (call parameter) at ./main.go:53:14
+./main.go:42:62: parameter r leaks to {heap} with derefs=2:
+./main.go:42:62:   flow: {heap} = **r:
+./main.go:42:62:     from r.URL (dot of pointer) at ./main.go:43:16
+./main.go:42:62:     from (*url.URL).Query(r.URL) (call parameter) at ./main.go:43:26
+./main.go:38:54: reqID escapes to heap:
+./main.go:38:54:   flow: {storage for ... argument} = &{storage for reqID}:
+./main.go:38:54:     from reqID (spill) at ./main.go:38:54
+./main.go:38:54:     from ... argument (slice-literal-element) at ./main.go:38:13
+./main.go:38:54:   flow: log.v = &{storage for ... argument}:
+./main.go:38:54:     from ... argument (spill) at ./main.go:38:13
+./main.go:38:54:     from log.format, log.v := "Heap handler processed request ID %d", ... argument (assign-pair) at ./main.go:38:13
+./main.go:38:54:   flow: {heap} = *log.v:
+./main.go:38:54:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+./main.go:26:38: parameter w leaks to {heap} with derefs=0:
+./main.go:26:38:   flow: {heap} = w:
+./main.go:26:38:     from w (interface-converted) at ./main.go:37:15
+./main.go:26:38:     from fmt.Fprintf(w, "Heap Allocated Stats: %+v\n", ... argument...) (call parameter) at ./main.go:37:14
+./main.go:26:61: parameter r leaks to {heap} with derefs=2:
+./main.go:26:61:   flow: {heap} = **r:
+./main.go:26:61:     from r.URL (dot of pointer) at ./main.go:27:16
+./main.go:26:61:     from (*url.URL).Query(r.URL) (call parameter) at ./main.go:27:26
+/home/systemdr/go/src/log/log.go:397:24: parameter log.b leaks to ~r0 with derefs=0:
+/home/systemdr/go/src/log/log.go:397:24:   flow: {temp} = log.b:
+/home/systemdr/go/src/log/log.go:397:24:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+/home/systemdr/go/src/log/log.go:397:24:   flow: ~r0 = {temp}:
+/home/systemdr/go/src/log/log.go:397:24:     from return fmt.Appendf(log.b, log.format, log.v...) (return) at /home/systemdr/go/src/log/log.go:398:3
+/home/systemdr/go/src/log/log.go:397:24: parameter log.b leaks to ~r0 with derefs=0:
+/home/systemdr/go/src/log/log.go:397:24:   flow: {temp} = log.b:
+/home/systemdr/go/src/log/log.go:397:24:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+/home/systemdr/go/src/log/log.go:397:24:   flow: ~r0 = {temp}:
+/home/systemdr/go/src/log/log.go:397:24:     from return fmt.Appendf(log.b, log.format, log.v...) (return) at /home/systemdr/go/src/log/log.go:398:3
+/home/systemdr/go/src/log/log.go:397:24: parameter log.b leaks to ~r0 with derefs=0:
+/home/systemdr/go/src/log/log.go:397:24:   flow: {temp} = log.b:
+/home/systemdr/go/src/log/log.go:397:24:     from fmt.Appendf(log.b, log.format, log.v...) (call parameter) at /home/systemdr/go/src/log/log.go:398:21
+/home/systemdr/go/src/log/log.go:397:24:   flow: ~r0 = {temp}:
+/home/systemdr/go/src/log/log.go:397:24:     from return fmt.Appendf(log.b, log.format, log.v...) (return) at /home/systemdr/go/src/log/log.go:398:3
+./main.go:26:38: leaking param: w
+./main.go:26:61: leaking param content: r
+/home/systemdr/go/src/log/log.go:397:24: leaking param: b to result ~r0 level=0
+./main.go:42:39: leaking param: w
+./main.go:42:62: leaking param content: r
+/home/systemdr/go/src/log/log.go:397:24: leaking param: b to result ~r0 level=0
+/home/systemdr/go/src/log/log.go:397:24: leaking param: b to result ~r0 level=0
+./main.go:26:33: func literal escapes to heap
+./main.go:37:14: ... argument does not escape
+./main.go:38:13: ... argument does not escape
+./main.go:38:54: reqID escapes to heap
+./main.go:38:13: func literal does not escape
+./main.go:42:34: func literal escapes to heap
+./main.go:53:14: ... argument does not escape
+./main.go:53:50: stats escapes to heap
+./main.go:54:13: ... argument does not escape
+./main.go:54:55: reqID escapes to heap
+./main.go:54:13: func literal does not escape
+./main.go:60:12: ... argument does not escape
+./main.go:60:40: "8080" escapes to heap
+./main.go:60:12: func literal does not escape
+./main.go:61:11: ... argument does not escape
+./main.go:61:31: &http.Server{...} escapes to heap
