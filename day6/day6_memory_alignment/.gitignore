@@ -1,0 +1,55 @@
+# Binaries
+server
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build / IDE
+/bin
+/vendor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Go
+*.test
+*.out
+go.work
+
+# Logs and runtime
+*.log
+server.log
+server.pid
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+secrets/
+
+# Cache and artifacts
+node_modules/
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+.cover
+htmlcov/
+.coverage
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Istio (if present)
+istio-*/
