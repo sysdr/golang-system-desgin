@@ -1,7 +1,5 @@
 ## **Engineering High-Performance Distributed Systems in Go: A 100M RPS Methodology**
 
-### [Check Course Curriculum](https://systemdrd.com/courses/ai-agents-hands-on-course/)
-
 The architecture of a system capable of sustaining 100 million requests per second (RPS) represents the pinnacle of modern software engineering. At such a scale, the traditional abstractions of programming languages and operating systems begin to reveal their inherent latencies. The transition from a standard backend service to an ultra-high-throughput engine requires an intimate understanding of the Go runtime, the Linux kernel, and the physical constraints of hardware. This report outlines a comprehensive pedagogical framework for mastering these disciplines through the construction of a distributed, in-memory key-value store.
 
 ## **Why This Course?**
